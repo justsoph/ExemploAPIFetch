@@ -71,6 +71,9 @@ window.onload = function(){
       method: "delete",
       mode: 'cors',
       cache: 'default'
-    }).then(alert("Registro deletado com sucesso!"));
+    }).then(()=>{
+      alert("Registro deletado com sucesso!");
+      LimparCampos();
+    });
   })
 }
