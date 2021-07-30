@@ -30,15 +30,15 @@ window.onload = function(){
   //ação de cadastrar um registro
   cadastrar.addEventListener("click", function(){
     let formdata = new FormData();
-    formdata.append('nome', '${nome.value}');
-    formdata.append('curso', '${curso.value}');
+    formdata.append('nome', `${nome.value}`);
+    formdata.append('curso', `${curso.value}`);
 
     fetch("https://www.jussimarleal.com.br/exemplo_api/pessoa",{
       body: formdata,
       method: "post",
       mode: 'cors',
       cache: 'default'
-    });.then(()=>{
+    }).then(()=>{
       alert("Registro efetuado com sucesso.");
       LimparCampos();
     });
