@@ -48,7 +48,7 @@ window.onload = function(){
   alterar.addEventListener("click", function(){
     fetch(`https://www.jussimarleal.com.br/exemplo_api/pessoa/${id.value}`,{
       body: formdata,
-      method: "putt",
+      method: "put",
       headers:{
         'Content-type' : 'application/json; charset = UTF-8'
       }
