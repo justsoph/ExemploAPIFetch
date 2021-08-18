@@ -76,4 +76,38 @@ window.onload = function(){
       LimparCampos();
     });
   })
+
+  $(document).on("click", "#qrcode", function(){
+  cordova.plugins.barcodeScanner.scan(
+    function (result) {
+      id.value = result.text;
+      fetch(`https://www.jussimarleal.com.br/exemplo_api/pessoa/${id.value}`,{
+        body: formdata,
+        method: "get",
+        mode: 'cors',
+        cache: 'default'
+      }).then(response=>{
+        response.json().then(data =>{
+          nome.value = data['nome'];
+          curso.value = data['curso'];
+        })
+      })
+      function (error) {
+          alert("Scanning failed: " + error);
+      },
+      {
+          preferFrontCamera : false,
+          showFlipCameraButton : true,
+          showTorchButton : true,
+          torchOn : true,
+          saveHistory : true,
+          prompt : "Place a barcode inside the scan area",
+          resultDisplayDuration: 500,
+          formats : "QR_CODE,PDF_417, CODE_39",
+          orientation : "landscape",
+          disableAnimations : true,
+          disableSuccessBeep: false
+      }
+    );
+  });
 }
