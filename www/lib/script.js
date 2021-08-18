@@ -76,7 +76,7 @@ window.onload = function(){
       LimparCampos();
     });
   })
-
+  //método para buscar com QRCode
   $(document).on("click", "#qrcode", function(){
   cordova.plugins.barcodeScanner.scan(
     function (result) {
